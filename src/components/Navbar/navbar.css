@@ -1,0 +1,31 @@
+.nav-ul {
+    list-style-type: none;
+    display: flex;
+    background-color: black;
+    position: relative;
+    bottom: 16px;
+    height: 52px;
+}
+
+.nav-li {
+    width: 13%;
+    position: relative;
+    top: 12px;
+    text-decoration: none;
+}
+
+.nav-text-dec {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-li-font {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+li:hover {
+    background-color: yellow;
+    color: black;
+    position: relative;
+    top: 0px;
+}
