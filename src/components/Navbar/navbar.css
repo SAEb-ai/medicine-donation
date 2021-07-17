@@ -23,9 +23,18 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-li:hover {
-    background-color: yellow;
+.nav-item-hover:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
     color: black;
     position: relative;
-    top: 0px;
+}
+
+.nav-item-hover-sign:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(63, 238, 63);
+    color: black;
+    position: relative;
 }
