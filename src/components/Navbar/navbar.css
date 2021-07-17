@@ -1,0 +1,40 @@
+.nav-ul {
+    list-style-type: none;
+    display: flex;
+    background-color: black;
+    position: relative;
+    bottom: 16px;
+    height: 52px;
+}
+
+.nav-li {
+    width: 13%;
+    position: relative;
+    top: 12px;
+    text-decoration: none;
+}
+
+.nav-text-dec {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-li-font {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-item-hover:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    position: relative;
+}
+
+.nav-item-hover-sign:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(63, 238, 63);
+    color: black;
+    position: relative;
+}
