@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import SignIn from "../../modals/signin-modal";
+import SignIn from "../../modals/sign-in-modal/sign-in-modal.jsx";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -34,7 +34,6 @@ export default function Navbar() {
                     <li className="nav-li">
                         <NavLink to="/sign-up"
                         className = "nav-text-dec nav-li-font nav-item-hover-sign"
-                        onClick = {() => {setModalOpen(true)}}
                         >
                             SignUp
                         </NavLink>
