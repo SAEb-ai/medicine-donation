@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
+import SignIn from "../../modals/signin-modal";
 import "./navbar.css";
 
 export default function Navbar() {
-    const [hover, setHover] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
     return (
         <>
             <nav>
@@ -24,29 +25,30 @@ export default function Navbar() {
                     </li>
                     
                     <li className="nav-li">
-                        <NavLink to="/contactUs"
+                        <NavLink to="/contact-us"
                         className = "nav-text-dec nav-li-font nav-item-hover"
                         >
                             Contact Us
                         </NavLink>
                     </li>
-
                     <li className="nav-li">
-                        <NavLink to="/contactUs"
+                        <NavLink to="/sign-up"
                         className = "nav-text-dec nav-li-font nav-item-hover-sign"
-                        >
-                            SignIn
-                        </NavLink>
-                    </li>
-
-                    <li className="nav-li">
-                        <NavLink to="/contactUs"
-                        className = "nav-text-dec nav-li-font nav-item-hover-sign"
+                        onClick = {() => {setModalOpen(true)}}
                         >
                             SignUp
                         </NavLink>
                     </li>
-                </ul>
+                    <li className="nav-li">
+                        <NavLink to="/sign-in"
+                        className = "nav-text-dec nav-li-font nav-item-hover-sign"
+                        onClick = {() => {setModalOpen(true)}}
+                        >
+                            SignIn
+                        </NavLink>
+                        <SignIn open = {isModalOpen} />
+                    </li>
+                    </ul>
             </nav>
         </>
     );
