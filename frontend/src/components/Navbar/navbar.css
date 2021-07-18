@@ -37,3 +37,11 @@
     color: black;
     position: relative;
 }
+
+.nav-item-hover-admin:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(177, 18, 18);
+    color: black;
+    position: relative;
+}
