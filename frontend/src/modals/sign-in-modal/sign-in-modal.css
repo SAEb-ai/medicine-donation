@@ -53,3 +53,7 @@
 .form-sign-in-button:hover {
     opacity: 0.80;
 }
+
+.md-round {
+    border-radius: 4px;
+}

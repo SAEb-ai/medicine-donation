@@ -14,7 +14,7 @@ export default function SignIn(props) {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal className="md-round" show={show} onHide={handleClose}>
                 <div className="form-container">
                     <form action="/sign-in" metgod="POST">
                         <h1 className="decorate-heading">SignIn to Helpers</h1>
