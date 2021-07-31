@@ -4,12 +4,9 @@ import "./sign-in-modal.css"
 
 export default function SignIn(props) {
 
-    const [show, setShow] = useState(props.open);
+    const [show, setShow] = useState(true);
     const [passwordShown, setPasswordShown] = useState(false);
 
-    useEffect(() => {
-        setShow(props.open);
-    }, [props.open]);
     const handleClose = () => setShow(false);
 
     return (

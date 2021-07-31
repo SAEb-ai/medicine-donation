@@ -3,16 +3,12 @@ import { useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import "./sign-up-modal.css"
+import "./sign-up-modal.css";
 
 export default function SignUp(props) {
 
     const [passwordShown, setPasswordShown] = useState(false);
-    const [show, setShow] = useState(props.show);
-
-    useEffect(() => {
-        setShow(props.show);
-    }, [props.show]);
+    const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
 
@@ -40,6 +36,7 @@ export default function SignUp(props) {
             })
         });
         alert("Success");
+        setShow(false);
         history.push("/");
     }
 
