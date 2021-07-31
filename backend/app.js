@@ -17,10 +17,11 @@ app.post("/sign-up", async(req,res) => {
         const user = new signUpModel(req.body);
         const userDataSaved = await user.save();
         console.log(userDataSaved);
+        res.status(201).send("Successful");
         res.end();
     }
     catch(err) {
-        console.log(err);
+        res.status(404).send("Page Not Found");
     }
 
 })

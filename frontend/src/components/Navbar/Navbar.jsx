@@ -5,7 +5,7 @@ import SignUp from "../../modals/sign-up-modal/sign-up-modal";
 import "./navbar.css";
 
 export default function Navbar() {
-    const [show, setShow] = useState(false);
+    
     return (
         <>
             <nav>
@@ -35,11 +35,11 @@ export default function Navbar() {
                     <li className="nav-li">
                         <NavLink to="/sign-up"
                             className="nav-text-dec nav-li-font nav-item-hover-sign"
-                            onClick={()=>setShow(true)}
+                            
                         >
                             SignUp
                         </NavLink>
-                        <SignUp show={show}/>
+                    
 
                     </li>
                     <li className="nav-li">
