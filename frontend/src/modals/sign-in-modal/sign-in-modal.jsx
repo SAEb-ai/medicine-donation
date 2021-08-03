@@ -30,14 +30,14 @@ export default function SignIn(props) {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                name, email
+                email, password
             })
         });
-        if(res.status===409 || !res) {
+        if(res.status===422 || !res) {
             alert("Invalid Registration");
         }
         else {
-            alert("Successful Registration");
+            alert("Successful SignIn");
             setShow(false);
             history.push("/");
         }
@@ -50,12 +50,12 @@ export default function SignIn(props) {
                         <h1 className="decorate-heading">SignIn to Helpers</h1>
                         <div className="form-input">
                             <i className="far fa-envelope i-before"></i>
-                            <input type="email" id="email" name="Email Entered" className="form-input-tag" placeholder="Enter your email" onChange={handleInputs} required />
+                            <input type="email" id="email" name="email" className="form-input-tag" placeholder="Enter your email" onChange={handleInputs} required />
                         </div>
 
                         <div className="form-input">
                             <i className="fas fa-lock i-before"></i>
-                            <input type={passwordShown ? "text" : "password"} id="email" name="Password Entered" className="form-input-tag" placeholder="Enter your password" onChange={handleInputs} required />
+                            <input type={passwordShown ? "text" : "password"} id="email" name="password" className="form-input-tag" placeholder="Enter your password" onChange={handleInputs} required />
                             <i className={passwordShown ? "fa fa-eye i-after" : "fas fa-eye-slash i-after"} onClick={() => { setPasswordShown((passwordShown ? false : true)) }}></i>
                         </div>
 

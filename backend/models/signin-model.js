@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
 
 const signInSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minLength: 3
-    },
+    
     email: {
         type: String,
         required: true,
@@ -16,8 +13,28 @@ const signInSchema = new mongoose.Schema({
             }
         }
     },
+
+    password: {
+        type: String,
+        required: true
+    },
+
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 });
 
-const signInModel = mongoose.model("SignUpModel", signUpSchema);
+signInSchema.methods.generateAuthToken=async function() {
+
+    const token = await jwt.sign({_id: this._id}, process.env.SECRET_KEY);
+    this.tokens = this.tokens.concat({token: token});
+    await this.save();
+    return token;
+}
+
+const signInModel = mongoose.model("SignInModel", signInSchema);
 
 module.exports = signInModel;
