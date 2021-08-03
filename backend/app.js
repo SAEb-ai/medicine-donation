@@ -13,15 +13,38 @@ app.get("/", (req, res) => {
 
 app.post("/sign-up", async(req,res) => {
     try {
-        console.log(req.body);
+        const findUser = await signUpModel.findOne({email: req.body.email});
+        if(findUser) {
+            return res.status(422).json({error:"Email Already Exists"});
+        }
         const user = new signUpModel(req.body);
         const userDataSaved = await user.save();
-        console.log(userDataSaved);
-        res.status(201).send("Successful");
+        if(userDataSaved) {
+            res.status(201).json({message: "Successful SignUp"});
+        }
         res.end();
     }
     catch(err) {
-        res.status(404).send("Page Not Found");
+        console.log(err);
+    }
+
+})
+
+app.post("/sign-in", async(req,res) => {
+    try {
+        const findUser = await signUpModel.findOne({email: req.body.email});
+        if(findUser) {
+            return res.status(409).json({error:"Email Already Exists"});
+        }
+        const user = new signUpModel(req.body);
+        const userDataSaved = await user.save();
+        if(userDataSaved) {
+            res.status(201).json({message: "Successful SingUp"});
+        }
+        res.end();
+    }
+    catch(err) {
+        console.log(err);
     }
 
 })

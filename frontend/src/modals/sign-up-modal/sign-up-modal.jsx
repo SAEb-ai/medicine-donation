@@ -35,9 +35,15 @@ export default function SignUp(props) {
                 name, email, phone, password
             })
         });
-        alert("Success");
-        setShow(false);
-        history.push("/");
+        console.log(res.status);
+        if(res.status===422 || !res) {
+            alert("Invalid Registration");
+        }
+        else {
+            alert("Successful Registration");
+            setShow(false);
+            history.push("/");
+        }
     }
 
 

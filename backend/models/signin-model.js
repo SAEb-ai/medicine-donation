@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const signUpSchema = new mongoose.Schema({
+const signInSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -16,17 +16,8 @@ const signUpSchema = new mongoose.Schema({
             }
         }
     },
-    phone: {
-        type: Number,
-        required: true,
-        min: 10
-    },
-    password: {
-        type: String,
-        required: true
-    }
 });
 
-const signUpModel = mongoose.model("SignUpModel", signUpSchema);
+const signInModel = mongoose.model("SignUpModel", signUpSchema);
 
-module.exports = signUpModel;
+module.exports = signInModel;
