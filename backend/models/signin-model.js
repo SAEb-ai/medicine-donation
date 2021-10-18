@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
-
+const bcrypt = require('bcrypt');
 const signInSchema = new mongoose.Schema({
     
     email: {
@@ -19,21 +19,7 @@ const signInSchema = new mongoose.Schema({
         required: true
     },
 
-    tokens: [{
-        token: {
-            type: String,
-            required: true
-        }
-    }]
 });
-
-signInSchema.methods.generateAuthToken=async function() {
-
-    const token = await jwt.sign({_id: this._id}, process.env.SECRET_KEY);
-    this.tokens = this.tokens.concat({token: token});
-    await this.save();
-    return token;
-}
 
 const signInModel = mongoose.model("SignInModel", signInSchema);
 

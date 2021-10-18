@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+.home-background {
+    background-color: rgb(255, 174, 0);
+    height: 62vh;
+    width: 100vw;
+}

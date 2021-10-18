@@ -38,11 +38,13 @@ export default function SignUp(props) {
         console.log(res.status);
         if(res.status===422 || !res) {
             alert("Invalid Registration");
+            return res;
         }
         else {
             alert("Successful Registration");
             setShow(false);
             history.push("/");
+            return res;
         }
     }
 

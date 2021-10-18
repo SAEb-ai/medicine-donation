@@ -1,7 +1,10 @@
+import './home.css';
 export default function Home() {
     return (
         <>
-            <h1>This is Home Page</h1>
+            <div className="home-background">
+                <h1>This is Home Page</h1>
+            </div>
         </>
     )
 }

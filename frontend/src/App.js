@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Home from "./pages/Home/home.jsx";
 import About from "./pages/About/about.jsx";
+import Todo from "./pages/todos/todo.jsx";
 function App() {
   return (
     <>
@@ -16,7 +17,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/sign-up" component={SignUp} />
-            <Route exact path="/sign-in" component={SignIn} />          
+            <Route exact path="/sign-in" component={SignIn} />
+            <Route exact path="/todo" component={Todo} />     
           </Switch>
         </Router>
       </div>

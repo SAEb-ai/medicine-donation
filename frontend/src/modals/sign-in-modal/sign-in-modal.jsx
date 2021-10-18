@@ -33,13 +33,15 @@ export default function SignIn(props) {
                 email, password
             })
         });
-        if(res.status===422 || !res) {
+        if(res.status===422 || !res || res.status===400) {
             alert("Invalid Registration");
+            return res;
         }
         else {
             alert("Successful SignIn");
             setShow(false);
-            history.push("/");
+            history.push("/todo");
+            return res;
         }
     }
     return (
