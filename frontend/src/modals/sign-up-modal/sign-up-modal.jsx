@@ -4,45 +4,54 @@ import { Modal } from "react-bootstrap";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./sign-up-modal.css";
+import axios from "axios";
 
 export default function SignUp(props) {
-
+    useEffect(() => {
+        axios.get(`http://universities.hipolabs.com/search`).then(res => {
+            console.log(res.data);
+            setColleges(res.data);
+        })
+    }, [])
+    const [colleges, setColleges] = useState([])
     const [passwordShown, setPasswordShown] = useState(false);
     const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
 
     const [user, setUser] = useState({
-        name: '', email: '', phone: '', password: ''
+        name: '', email: '', phone: '', password: '', institution: ''
     });
     const history = useHistory();
-    let name,value;
+    let name, value;
     const handleInputs = (e) => {
         name = e.target.name;
         value = e.target.value;
-        setUser({...user,[name]:value});
+        setUser({ ...user, [name]: value });
     };
 
     const postData = async (e) => {
         e.preventDefault();
-        const { name, email, phone, password } = user;
+        const { name, email, phone, password, institution } = user;
         const res = await fetch("/sign-up", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                name, email, phone, password
+                name, email, phone, password, institution
             })
         });
         console.log(res.status);
-        if(res.status===422 || !res) {
+        if (res.status === 422 || !res) {
             alert("Invalid Registration");
+            return res;
         }
         else {
             alert("Successful Registration");
             setShow(false);
             history.push("/");
+            return res;
         }
     }
 
@@ -66,7 +75,22 @@ export default function SignUp(props) {
 
                         <div className="form-input">
                             <i className="fas fa-phone-alt i-before"></i>
-                            <input type="tel" id="phone" name="phone" value={user.phone} className="form-input-tag" placeholder="Enter your Phone Number" onChange= {handleInputs} required />
+                            <input type="tel" id="phone" name="phone" value={user.phone} className="form-input-tag" placeholder="Enter your Phone Number" onChange={handleInputs} required />
+                        </div>
+
+                        <div className="form-input">
+                            <i className="fas fa-university i-before"></i>
+                            <select className="form-input-tag" name="institution" onChange={handleInputs}>
+                                <option selected disabled hidden>Where do you study?</option>
+                                {
+                                    colleges.map((ele, ind) => {
+                                        return (
+                                            <option value={ele.name}>{ele.name}</option>
+                                        )
+                                    })
+                                }
+
+                            </select>
                         </div>
 
                         <div className="form-input">
