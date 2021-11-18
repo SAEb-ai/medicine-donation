@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+.form-container {
+    padding: 30px;
+    background-color: rgb(221, 221, 221);
+}
+ 
+.form-input {
+    position: relative;
+    margin: 20px;
+}
+
+.form-input:hover {
+    opacity: 0.8;
+}
+
+.i-before{
+    position: absolute;
+    top: 13px;
+    left: 10px;
+}
+
+.i-after{
+    position: absolute;
+    top: 13px;
+    right: 5px;
+}
+
+.form-input-tag {
+    width: 100%;
+    height: 39px;
+    padding-left: 41px;
+}
+
+.decorate-heading {
+    display: flex;
+    justify-content: center;
+    color:green;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.form-sign-in-button {
+    background-color: green;
+    width: 100%;
+    height: 38px;
+    border: 0px;
+    border-radius: 12px;
+    color: white;
+}
+
+.form-sign-in-button:hover {
+    opacity: 0.80;
+}
+
+.md-round {
+    border-radius: 4px;
+}
+
+.place-button {
+display: flex;
+margin: 20px;
+}
+
+.delete {
+    background-color: red;
+}
+
+.update {
+    background-color: green;
+}
+
+.flex {
+    display:flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.mar-style {
+    margin: 26px;
+    box-shadow: 1px 1px 16px;
+}
+
+.second-style {
+    background-color: #ffc107;
+    color: white;
+}
