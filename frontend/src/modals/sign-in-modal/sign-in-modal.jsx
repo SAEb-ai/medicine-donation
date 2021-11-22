@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import "./sign-in-modal.css"
+import Home from "../../pages/Home/home";
+import { UserContext } from "../../App";
 
 export default function SignIn(props) {
-
+    const {state, dispatch} = useContext(UserContext);
+    const history = useHistory();
     const [show, setShow] = useState(true);
     const [passwordShown, setPasswordShown] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {history.push("/");setShow(false)};
 
     const [user, setUser] = useState({
         email: '', password: ''
     });
-    const history = useHistory();
+   
     let name,value;
     const handleInputs = (e) => {
         name = e.target.name;
@@ -38,7 +41,8 @@ export default function SignIn(props) {
             return res;
         }
         else {
-            alert("Successful SignIn");
+            
+            dispatch({type: "USER", payload: true});
             setShow(false);
             history.push("/todo");
             return res;
@@ -46,6 +50,7 @@ export default function SignIn(props) {
     }
     return (
         <>
+            <Home />
             <Modal className="md-round" show={show} onHide={handleClose}>
                 <div className="form-container">
                     <form action="/sign-in" method="POST">

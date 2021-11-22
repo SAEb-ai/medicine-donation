@@ -1,30 +1,39 @@
-import './home.css';
 import { Carousel } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 import test from "../../images/test.jpeg";
+import "./home.css";
+
+import Footer from '../../components/Footer/footer';
 export default function Home() {
     return (
         <>
-            <div className="ar">
-                <div className="grid-1">
-                    <div className="am">
+            <div className="content container">
+                <div className="row justify-content-center">
+                    <div className="col-12">
+                        <div
+                            className="overview overview-light"
 
-                        <Card >
-                            <Card.Img variant="top" src={test} />
-                            <Card.Body>
-                                <Card.Title className="gh">Founder ~ Mr. Md Shahbaz Alam</Card.Title>
-                                <Card.Text className="hj">
-                                    A good student is who shares his knowledge with others too.
-                                </Card.Text>
-                                <Button variant="primary">Know More</Button>
-                            </Card.Body>
-                        </Card>
+                        >
+                            <div>
+                                <h1 className="postion-h1">Helping Society</h1>
+                                <div
+                                    className="dash dash-light"
+                                ></div>
+                                <p className="postion-h1">
+                                    A community driven by tech enthusiasts and open-source contributors, with the aim to make helping easy and smooth so that maximun number of people get benefited.
+                                </p>
+                            </div>
+                            <img
+                                src={test}
+                                alt="HITK Tech Community Official Logo"
+                            />
+                        </div>
                     </div>
                 </div>
-                
             </div>
+            <Footer />
 
         </>
     )

@@ -72,7 +72,21 @@ export default function Create(props) {
     const handlePhoto = (e) => {
         name = e.target.name;
         value = e.target.files[0];
-        setUser({ ...user, image: e.target.files[0] });
+        const file_size = e.target.files[0].size;
+        const file_size_in_kb = Math.round((file_size / 1024));
+                // The size of the file.
+                if (file_size_in_kb >= 150) {
+                    alert(
+                      "File too Big, please select a file less than 4mb");
+                   
+                } else if (file_size_in_kb < 20) {
+                    alert(
+                      "File too small, please select a file greater than 2mb");
+                      
+                } else {
+                    setUser({ ...user, image: e.target.files[0] });
+                }
+        
     };
     const postData = async (e) => {
         e.preventDefault();
@@ -92,7 +106,7 @@ export default function Create(props) {
             body: formData
         });
         
-        window.location.reload(false);
+        callCreatePage();
     
         // console.log(res.status);
         // if (res.status === 422 || !res) {

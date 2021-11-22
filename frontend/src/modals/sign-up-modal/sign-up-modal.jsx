@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./sign-up-modal.css";
 import axios from "axios";
+import Home from "../../pages/Home/home";
 
 export default function SignUp(props) {
     useEffect(() => {
@@ -13,16 +14,17 @@ export default function SignUp(props) {
             setColleges(res.data);
         })
     }, [])
+    const history = useHistory();
     const [colleges, setColleges] = useState([])
     const [passwordShown, setPasswordShown] = useState(false);
     const [show, setShow] = useState(true);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {history.push("/");setShow(false)};
 
     const [user, setUser] = useState({
         name: '', email: '', phone: '', password: '', institution: ''
     });
-    const history = useHistory();
+    
     let name, value;
     const handleInputs = (e) => {
         name = e.target.name;
@@ -48,7 +50,7 @@ export default function SignUp(props) {
             return res;
         }
         else {
-            alert("Successful Registration");
+            
             setShow(false);
             history.push("/");
             return res;
@@ -59,6 +61,7 @@ export default function SignUp(props) {
 
     return (
         <>
+            <Home />
             <Modal show={show} onHide={handleClose}>
                 <div className="form-container">
                     <form method="POST">

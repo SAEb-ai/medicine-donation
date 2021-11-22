@@ -1,272 +1,123 @@
-* {
-    box-sizing: border-box;
-}
-.home-background {
-    background-color: rgb(255, 174, 0);
-    height: 62vh;
-    width: 100vw;
+.overview {
+  display: flex;
+  height: 90vh;
+  align-items: center;
 }
 
-.ad {
-    height: 32rem;
-    box-shadow: 1px 3px 33px black;
+.overview > div {
+  padding-right: 2rem;
+}
+
+.overview img {
+  min-width: 0;
+  width: 80%;
+  height: auto;
+}
+
+.overview h1 {
+  font-size: 3.2rem;
+}
+
+.overview-light h1 {
+  color: #0a183d;
+}
+
+
+.overview-dark h1 {
+  color: #69a9dd;
+}
+
+.overview p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  opacity: 0.6;
+}
+
+.postion-h1 {
+  text-align: start;
+}
+.dash {
+  width: 300px;
+  height: 5px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.dash-light {
+  background: rgb(255, 0, 90);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 90, 1) 0%,
+    rgba(10, 24, 61, 1) 90%
+  );
+}
+
+.dash-dark {
+  background: #2b5876;
+  background: linear-gradient(45deg, #2b5876 0%, #4e4376 90%);
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .overview img {
+    min-width: auto;
+    width: 200px;
+    object-fit: cover;
   }
-  .oi {
-    height: 33.5rem;
+}
+
+@media screen and (min-width: 550px) and (max-width: 800px) {
+  .overview {
+    padding: 1.8rem 0;
   }
-  .ar {
-    background-color:orange;
-    
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 4rem;
-   
-    padding: 11px;
+
+  .overview p {
+    font-size: 1.3rem;
   }
-  .grid-1 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-  
+
+  .overview > div {
+    padding-right: 0;
   }
-  .grid-2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
+
+  .overview img {
+    min-width: auto;
+    width: 180px;
+    margin-left: 11px;
   }
-  .grid-3 {
-    grid-column-start: 3;
-    grid-column-end: 4;
-  }
-  .am{
-    box-shadow: 1px 3px 33px black;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .school {
-    color: red;
-    font: bold;
-    font-size: 3rem;
-    font-family: 'Ubuntu', sans-serif;
-    animation: typing 5s steps(30, end);
-  }
-  
-  .about {
-    
-    background-color: orange;
-    width: 100vw;
-    display: flex;
+}
+
+@media screen and (max-width: 550px) {
+  .overview {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    padding: 1.8rem 0;
   }
-  .inc {
-    width: 100vw;
+
+  .overview > div {
+    padding-right: 0;
   }
-  .abt {
-    width: 67vw;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 0 0 61px 61px;
-    box-shadow: 0px 0px 14px #beed00;
-    padding: 1rem;
-    font-weight: 900;
-    font-family: 'Ubuntu',sans-serif;
-    text-shadow: 0px 0px 1px #ffc107;
+
+  .overview p {
+    font-size: 1.3rem;
+    text-align: center;
   }
-  @keyframes typing {
-    from { 
-        width: 0% 
-    }
-    to { 
-        width: 100% 
-    }
+
+  .overview img {
+    order: -1;
+    min-width: auto;
+    width: 180px;
   }
-  .absolute {
-    top:0px
+
+  .overview h1 {
+    text-align: center;
   }
-  
-  
-  
-  .name-desc {
-    margin: 23px;
+
+  .overview .dash {
+    margin: auto;
+    margin-bottom: 10px;
   }
-  
-  
-  .line-1{
-      position: relative;
-      top: 5%;  
-      font-size: 5rem;
-      font-weight: bold;
-      font-family: 'Ubuntu', sans-serif;
-      width: 24em;
-      margin: 0 auto;
-      border-right: 2px solid rgba(255,255,255,.75);
-      font-size: 1.4rem;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      transform: translateY(-50%);  
-      color:rgb(102, 255, 0);  
-      text-shadow: 2px 3px 4px black;
-  }
-  
-  /* Animation */
-  .anim-typewriter{
-    animation: typewriter 4s steps(44) 1s 1 normal both,
-               blinkTextCursor 500ms steps(44) infinite normal;
-  }
-  @keyframes typewriter{
-    from{width: 0;}
-    to{width:26rem;}
-  }
-  @keyframes blinkTextCursor{
-    from{border-right-color: rgba(255,255,255,.75);}
-    to{border-right-color: transparent;}
-  }
-  .gh {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-  }
-  .uu {
-    padding: 0px;
-    color: black;
-    text-decoration: underline;
-  }
-  
-  .ss{
-    margin:10px;
-  }
-  .df {
-    box-shadow: 1px 1px 24px black;
-  }
-  .kl{
-    width: 80vw;
-  }
-  .hj {
-    font-family: cursive;
-  }
-  .fd {
-    font-size: 2.6rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bolder;
-  }
-  
-  .ed {
-    
-    font-size: 2.6rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bolder;
-  }
-  
-  .flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width:80vw;
-  }
-  
-  .white:hover {
-    background-color:rgb(129, 161, 81);  
-    border-radius: 4px;
-  }
-  .green:hover {
-    background-color: green;
-    border-radius: 4px;
-  }
-  .red:hover {
-    background-color: red;
-    border-radius: 4px;
-  }
-  @media screen and (max-width: 551px) {
-    .ar {
-      height: 110rem;
-    }
-    .line-1 {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 1112px) {
-    .ar {
-      grid-template-rows: 4fr 4fr 4fr;
-      height:108Srem;
-    }
-    .grid-1 {
-      grid-row-start: 1;
-      grid-row-end: 2;
-      grid-column-start:1 ;
-      grid-column-end: 5;
-      overflow: hidden;
-    
-    }
-    .grid-2 {
-      grid-row-start: 2;
-      grid-row-end: 3;
-      grid-column-start:1 ;
-      grid-column-end: 5;
-    }
-    .grid-3 {
-      grid-row-start: 3;
-      grid-row-end: 4;
-      grid-column-start:1 ;
-      grid-column-end: 5;
-    }
-  }
-  .map {
-    margin-top: 27rem;
-  }
-  @media screen and (max-width: 1363px) {
-    .search {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 765px) {
-    .line-1{
-      width: 50vw;
-    }
-    .anim-typewriter{
-      animation:  blink-animation 1s steps(5, start) infinite;
-      
-    }
-  }
-  
-  @media screen and (max-width: 547px) {
-    .line-1{
-      font-size: 0.9rem;
-    }
-    .ar {
-      grid-template-rows: 2fr 2fr 2fr;
-  
-    }
-    .ad {
-      height: 20rem;
-    }
-    .fd{
-    font-size: 2.3rem;
-    }
-    .ed {
-      font-size: 2.3rem;
-    }
-    .anim-typewriter{
-      animation:  blink-animation 1s steps(5, start) infinite;
-      
-    }
-  }
-  
-  @keyframes blink-animation {
-    to {
-      visibility: hidden;
-    }
-  }
+}
+
+.dark {
+  background-color: #171717;
+  color: whitesmoke;
+}

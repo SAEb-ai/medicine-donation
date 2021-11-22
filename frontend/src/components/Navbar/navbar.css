@@ -39,6 +39,14 @@
     position: relative;
 }
 
+.nav-item-hover-logout:hover {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(247, 6, 6);
+    color: black;
+    position: relative;
+}
+
 .nav-item-hover-admin:hover {
     padding: 10px;
     border-radius: 4px;

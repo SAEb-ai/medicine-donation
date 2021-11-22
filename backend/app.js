@@ -141,10 +141,19 @@ app.post("/todo", authenticate, (req,res) => {
     res.end();
 });
 
+app.get("/logout", (req, res) => {
+    res.clearCookie('jwttoken', { path: '/'});
+    res.status(200).send("User Logout");
+});
 app.post("/delete", authenticate, async(req, res) => {
     console.log(req.body.book);
-    const findUser = await signUpModel.findOneAndUpdate({'lBooks.lbook': req.body.book},{ $pull: { 'lBooks': {'lbook': req.body.book} } }, {new: true} );
-    console.log(req.rootUser.email);
+    const findUser = await signUpModel.findOne({$and: [
+        {'lBooks.lbook': req.body.book},
+        {'lBooks.ltime': req.body.time}
+      ]});
+
+    const findUser1 = await signUpModel.findOneAndUpdate({'lBooks.ltime': req.body.time},{ $pull: { 'lBooks': {'lbook': req.body.book,'ltime': req.body.time} } }, {new: true} );
+    console.log(findUser);
     var mailOptionsForBorrower = {
         from: 'borrow.helpers@gmail.com',
         to: req.rootUser.email,

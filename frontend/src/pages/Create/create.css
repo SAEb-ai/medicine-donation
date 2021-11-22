@@ -73,7 +73,10 @@ margin: 20px;
 
 .flex {
     display:flex;
+    width:100vw;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    flex-direction: row;
     padding: 50px;
 }
 .mar-style {

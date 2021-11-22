@@ -65,6 +65,9 @@ margin: 20px;
 
 .flex {
     display:flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 50px;
 }
