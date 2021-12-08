@@ -37,29 +37,12 @@ const signUpSchema = new mongoose.Schema({
 
     lBooks: [{
         type: Object
-        // lbook: {
-        //     type: String
-        //     // required: true
-        // },
-
-        // ltime: {
-        //     type: Number,
-        //     // required: true
-        // },
-
-        // // image: {
-        // //     data: Buffer,
-        // //     contentType: String,
-        // // }
     }],
 
     institution: {
         type: String,
         required: true
     }
-
-
-    // }
 });
 
 signUpSchema.pre('save', async function (next) {
@@ -81,16 +64,9 @@ signUpSchema.methods.update = async function(query, image) {
     console.log(lbook);
     console.log(ltime);
     this.lBooks = this.lBooks.concat({lbook, ltime, image});
-    // this.lBooks = this.lBooks.concat({ltime: ltime});
     await this.save();
     return 1;
 };
-
-// signUpSchema.methods.update1 = async function(image) {
-//     this.lBooks = this.lBooks.concat({image: image});
-//     await this.save();
-//     return 1;
-// };
 
 const signUpModel = mongoose.model("SignUpModel", signUpSchema);
 
