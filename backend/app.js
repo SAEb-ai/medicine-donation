@@ -41,41 +41,6 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage });
-// app.get('/', (req, res) => {
-//     imgModel.find({}, (err, items) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send('An error occurred', err);
-//         }
-//         else {
-//             res.render('imagesPage', { items: items });
-//         }
-//     });
-// });
-// // app.get("/", (req, res) => {
-// //     res.status(200).render("Hello! Welcome to the helpng society");
-// // })
-
-// app.post('/', upload.single('image'), (req, res, next) => {
-//     console.log(req.file);
-//     var obj = {
-//         name: req.body.name,
-//         desc: req.body.desc,
-//         img: {
-//             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-//             contentType: 'image/png'
-//         }
-//     }
-//     imgModel.create(obj, (err, item) => {
-//         if (err) {
-//             console.log(err);
-//         }
-//         else {
-//             // item.save();
-//             res.redirect('/');
-//         }
-//     });
-// });
 
 app.post("/sign-in", async(req,res) => {
     try {
@@ -89,7 +54,6 @@ app.post("/sign-in", async(req,res) => {
         if(!findUser) {
             return res.status(400).json({error:"Please Sign Up first"});
         }
-        // TODO: Check if the password entered matches with the password in the backend
         const isMatched = await bcrypt.compare(password, findUser.password);
         if(!isMatched) {
             return res.status(400).json({error: "Invalid Credentials"});
@@ -145,6 +109,7 @@ app.get("/logout", (req, res) => {
     res.clearCookie('jwttoken', { path: '/'});
     res.status(200).send("User Logout");
 });
+
 app.post("/delete", authenticate, async(req, res) => {
     console.log(req.body.book);
     const findUser = await signUpModel.findOne({$and: [
@@ -172,37 +137,20 @@ app.post("/delete", authenticate, async(req, res) => {
 })
 
 app.post("/create", authenticate, upload.single('myFile'), async (req, res) => {
-    // console.log(req.body);
+    
     var image = {
         data: fs.readFileSync(path.join(__dirname + '/public/' + req.file.filename)),
         contentType: 'image/png'
     }
 
     result = await req.rootUser.update(req.body, image);
-    // result1 = await req.rootUser.update1(image);
-    // console.log(req.rootUser);
-    return res.status(201).send(req.rootUser);
-    // result2 = await req.rootUser.update(image);
-    
+    return res.status(201).send(req.rootUser);    
 });
 
 app.get('/create', authenticate, (req, res) => {
     console.log(req.rootUser);
     return res.send(req.rootUser);
 })
-// app.post("/upload", (req, res, next) => {
-//     upload(req, res, function (err) {
-//         if (err instanceof multer.MulterError) {
-//             return res.status(500).json(err)
-//         } else if (err) {
-//             return res.status(500).json(err)
-//         }
-//    return res.status(200).send(req.file)
-
-//  })
-
-
-//  });
 
 app.get('/borrow', authenticate, async (req, res) => {
    
