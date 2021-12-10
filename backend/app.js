@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const app =express();
 const nodemailer = require("nodemailer");
@@ -23,12 +22,14 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+// Body Parser
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+// CORS
 app.use(cors());
-app.set("view engine", "ejs");
 
   
 var storage = multer.diskStorage({
@@ -42,6 +43,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+// POST request to /sign-in
 app.post("/sign-in", async(req,res) => {
     try {
         let token;
@@ -73,6 +75,7 @@ app.post("/sign-in", async(req,res) => {
 
 })
 
+// POST request to /sign-up
 app.post("/sign-up", async(req, res) => {
     try {
         const findUser = await signUpModel.findOne({email: req.body.email});
@@ -92,10 +95,7 @@ app.post("/sign-up", async(req, res) => {
 
 });
 
-app.post("/about", authenticate, (req,res)=> {
-    console.log(req.rootUser);
-});
-
+//POST request to /todo
 app.post("/todo", authenticate, (req,res) => {
     
     const { perform } = req.body;
@@ -105,11 +105,13 @@ app.post("/todo", authenticate, (req,res) => {
     res.end();
 });
 
+// GET request to /logout
 app.get("/logout", (req, res) => {
     res.clearCookie('jwttoken', { path: '/'});
     res.status(200).send("User Logout");
 });
 
+//POST request to /delete
 app.post("/delete", authenticate, async(req, res) => {
     console.log(req.body.book);
     const findUser = await signUpModel.findOne({$and: [
@@ -136,8 +138,8 @@ app.post("/delete", authenticate, async(req, res) => {
     return res.status(201).json({message:"Successful SignIn"});
 })
 
+//POST request to /create
 app.post("/create", authenticate, upload.single('myFile'), async (req, res) => {
-    
     var image = {
         data: fs.readFileSync(path.join(__dirname + '/public/' + req.file.filename)),
         contentType: 'image/png'
@@ -147,15 +149,17 @@ app.post("/create", authenticate, upload.single('myFile'), async (req, res) => {
     return res.status(201).send(req.rootUser);    
 });
 
+//GET request to /create 
 app.get('/create', authenticate, (req, res) => {
     console.log(req.rootUser);
     return res.send(req.rootUser);
 })
 
+//GET request to /borrow
 app.get('/borrow', authenticate, async (req, res) => {
-   
     const df = await signUpModel.find( { institution: req.rootUser.institution } );
     return res.send(df);
 });
+
 
 app.listen(port, () => console.log(`Server started listening at port ${port}`));

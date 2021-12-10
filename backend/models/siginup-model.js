@@ -3,6 +3,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+// Schema Configuration
 const signUpSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -45,6 +46,7 @@ const signUpSchema = new mongoose.Schema({
     }
 });
 
+//Hashing password using bcrypt.js
 signUpSchema.pre('save', async function (next) {
     if(this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 12);
@@ -52,6 +54,7 @@ signUpSchema.pre('save', async function (next) {
     next();
 });
 
+//Generate Authentication Token
 signUpSchema.methods.generateAuthToken = async function() {
     const token = await jwt.sign({_id: this._id}, process.env.SECRET_KEY);
     this.tokens = this.tokens.concat({token: token});
@@ -59,6 +62,7 @@ signUpSchema.methods.generateAuthToken = async function() {
     return token;
 };
 
+//Updates the books list with the new books being created the user 
 signUpSchema.methods.update = async function(query, image) {
     const {lbook, ltime} = query;
     console.log(lbook);
