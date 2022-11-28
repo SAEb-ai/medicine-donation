@@ -37,7 +37,7 @@
                     <div class="pass-link">
                         <a href="../forget-pass/forget-pass.html">Forgot password?</a>
                     </div>
-                    <div class="field btn">
+                    <div class="field btn" onClick="myFunction()">
                         <div class="btn-layer"></div>
                         <input type="submit" value="Login">
                     </div>
@@ -81,6 +81,9 @@
             signupBtn.click();
             return false;
         });
+        function myFunction() {
+            window.location.replace("../medicine/medicine.html");
+        }
     </script>
 </body>
 
