@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.overview > div {
+.overview>div {
   padding-right: 2rem;
 }
 
@@ -37,8 +37,9 @@
 .postion-h1 {
   text-align: start;
 }
+
 .dash {
-  width: 300px;
+  width: 444px;
   height: 5px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -46,11 +47,9 @@
 
 .dash-light {
   background: rgb(255, 0, 90);
-  background: linear-gradient(
-    45deg,
-    rgba(255, 0, 90, 1) 0%,
-    rgba(10, 24, 61, 1) 90%
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 0, 90, 1) 0%,
+      rgba(10, 24, 61, 1) 90%);
 }
 
 .dash-dark {
@@ -75,7 +74,7 @@
     font-size: 1.3rem;
   }
 
-  .overview > div {
+  .overview>div {
     padding-right: 0;
   }
 
@@ -92,7 +91,7 @@
     padding: 1.8rem 0;
   }
 
-  .overview > div {
+  .overview>div {
     padding-right: 0;
   }
 

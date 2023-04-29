@@ -6,7 +6,7 @@
     padding: 30px;
     background-color: rgb(221, 221, 221);
 }
- 
+
 .form-input {
     position: relative;
     margin: 20px;
@@ -16,13 +16,13 @@
     opacity: 0.8;
 }
 
-.i-before{
+.i-before {
     position: absolute;
     top: 13px;
     left: 10px;
 }
 
-.i-after{
+.i-after {
     position: absolute;
     top: 13px;
     right: 5px;
@@ -37,7 +37,7 @@
 .decorate-heading {
     display: flex;
     justify-content: center;
-    color:green;
+    color: green;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -59,8 +59,8 @@
 }
 
 .place-button {
-display: flex;
-margin: 20px;
+    display: flex;
+    margin: 20px;
 }
 
 .delete {
@@ -72,19 +72,20 @@ margin: 20px;
 }
 
 .flex {
-    display:flex;
-    width:100vw;
+    display: flex;
+    width: 100vw;
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 50px;
 }
+
 .mar-style {
     margin: 26px;
     box-shadow: 1px 1px 16px;
 }
 
 .second-style {
-    background-color: #ffc107;
+    background-color: #5e594a;
     color: white;
 }
