@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 // CORS
 app.use(
-  cors({ origin: ["http://localhost:3000", "https://medicine-donation-backend.onrender.com/"] }),
+  cors({ origin: ["http://localhost:3000", "https://medicine-donation-backend.onrender.com"] }),
 );
 
 var storage = multer.diskStorage({
