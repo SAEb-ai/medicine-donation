@@ -29,6 +29,7 @@ export default function Todos(props) {
     e.preventDefault();
     const { perform } = info;
     const res = await fetch("https://medicine-donation-backend.onrender.com/todo", {
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-type": "application/json",

@@ -41,6 +41,7 @@ export default function SignUp(props) {
     e.preventDefault();
     const { name, email, phone, password, institution } = user;
     const res = await fetch("https://medicine-donation-backend.onrender.com/sign-up", {
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-type": "application/json",

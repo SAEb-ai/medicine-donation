@@ -7,6 +7,7 @@ export default function Logout(props) {
   const history = useHistory();
   useEffect(() => {
     fetch("https://medicine-donation-backend.onrender.com/logout", {
+      mode: "no-cors",
       method: "GET",
       headers: {
         Accept: "application/json",
