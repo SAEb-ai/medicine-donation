@@ -32,7 +32,6 @@ export default function SignIn(props) {
     e.preventDefault();
     const { email, password } = user;
     const res = await fetch("https://medicine-donation-backend.onrender.com/sign-in", {
-      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-type": "application/json",

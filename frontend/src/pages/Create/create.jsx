@@ -94,7 +94,6 @@ export default function Create(props) {
     formData.append("lbook", lbook);
     formData.append("ltime", ltime);
     const res = await fetch("/create", {
-      mode: "no-cors",
       method: "POST",
       body: formData,
     });
