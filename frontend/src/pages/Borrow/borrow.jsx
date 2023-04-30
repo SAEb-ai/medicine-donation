@@ -17,7 +17,7 @@ export default function Borrow(props) {
   const history = useHistory();
   const callBorrowPage = async () => {
     try {
-      const res = await fetch("/borrow", {
+      const res = await fetch("https://medicine-donation-backend.onrender.com/borrow", {
         method: "GET",
         headers: {
           Acccept: "application/json",
