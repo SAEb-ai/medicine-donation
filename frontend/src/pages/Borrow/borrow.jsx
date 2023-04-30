@@ -115,7 +115,7 @@ export default function Borrow(props) {
     console.log(el.lbook);
     const book = el.lbook;
     const time = el.ltime;
-    const res = await fetch("/delete", {
+    const res = await fetch("https://medicine-donation-backend.onrender.com/delete", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

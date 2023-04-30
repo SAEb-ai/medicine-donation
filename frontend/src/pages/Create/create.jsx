@@ -16,7 +16,7 @@ export default function Create(props) {
   const [test, setTest] = useState([]);
   const callCreatePage = async () => {
     try {
-      const res = await fetch("/create", {
+      const res = await fetch("https://medicine-donation-backend.onrender.com/create", {
         method: "GET",
         headers: {
           Acccept: "application/json",

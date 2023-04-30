@@ -29,7 +29,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // CORS
-app.use(cors());
+app.use(
+  cors({ origin: ["http://localhost:3000", "https://medicine-donation-backend.onrender.com/"] }),
+);
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
