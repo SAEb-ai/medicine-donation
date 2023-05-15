@@ -31,12 +31,6 @@ app.use(cookieParser());
 // CORS
 app.use(cors({ origin: ["https://medicine-donation.onrender.com"] }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://medicine-donation.onrender.com");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
-
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public");
