@@ -40,7 +40,7 @@ export default function SignUp(props) {
   const postData = async (e) => {
     e.preventDefault();
     const { name, email, phone, password, institution } = user;
-    const res = await fetch("https://medicine-donation-backend.onrender.com/sign-up", {
+    const res = await fetch("/sign-up", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -70,7 +70,7 @@ export default function SignUp(props) {
       <Modal show={show} onHide={handleClose}>
         <div className="form-container">
           <form method="POST">
-            <h1 className="decorate-heading">SignUp to Helpers</h1>
+            <h1 className="decorate-heading">SignUp to Medicine Donation</h1>
             <div className="form-input">
               <i className="fas fa-user undefined i-before"></i>
               <input

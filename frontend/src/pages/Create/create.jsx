@@ -16,7 +16,7 @@ export default function Create(props) {
   const [test, setTest] = useState([]);
   const callCreatePage = async () => {
     try {
-      const res = await fetch("https://medicine-donation-backend.onrender.com/create", {
+      const res = await fetch("/create", {
         method: "GET",
         headers: {
           Acccept: "application/json",
@@ -93,7 +93,7 @@ export default function Create(props) {
     formData.append("myFile", image);
     formData.append("lbook", lbook);
     formData.append("ltime", ltime);
-    const res = await fetch("https://medicine-donation-backend.onrender.com/create", {
+    const res = await fetch("/create", {
       method: "POST",
       body: formData,
     });

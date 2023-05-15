@@ -17,8 +17,8 @@ export default function Home() {
                 <h1 className="postion-h1">Medicine Donation</h1>
                 <div className="dash dash-light"></div>
                 <p className="postion-h1">
-                  A community driven by tech enthusiasts and open-source contributors, with the aim
-                  to make helping easy and smooth so that maximun number of people get benefited.
+                  The Medicine Donation project is an initiative aimed at providing access to
+                  medication to those who cannot afford it.
                 </p>
               </div>
               <img src={test} alt="HITK Tech Community Official Logo" />

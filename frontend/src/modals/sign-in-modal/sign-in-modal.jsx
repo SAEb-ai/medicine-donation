@@ -31,7 +31,7 @@ export default function SignIn(props) {
   const postData = async (e) => {
     e.preventDefault();
     const { email, password } = user;
-    const res = await fetch("https://medicine-donation-backend.onrender.com/sign-in", {
+    const res = await fetch("/sign-in", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -57,7 +57,7 @@ export default function SignIn(props) {
       <Modal className="md-round" show={show} onHide={handleClose}>
         <div className="form-container">
           <form action="/sign-in" method="POST">
-            <h1 className="decorate-heading">SignIn to Helpers</h1>
+            <h1 className="decorate-heading">SignIn to Medicine Donation</h1>
             <div className="form-input">
               <i className="far fa-envelope i-before"></i>
               <input
