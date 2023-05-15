@@ -28,7 +28,7 @@ export default function Todos(props) {
   const postData = async (e) => {
     e.preventDefault();
     const { perform } = info;
-    const res = await fetch("/todo", {
+    const res = await fetch("https://medicine-donation-backend.onrender.com/todo", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

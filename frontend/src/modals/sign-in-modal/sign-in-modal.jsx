@@ -31,7 +31,7 @@ export default function SignIn(props) {
   const postData = async (e) => {
     e.preventDefault();
     const { email, password } = user;
-    const res = await fetch("/sign-in", {
+    const res = await fetch("https://medicine-donation-backend.onrender.com/sign-in", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
